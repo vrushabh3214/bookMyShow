@@ -1,0 +1,72 @@
+
+
+
+   <%- include('./layout/navbar') %>
+
+
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="../img/1726038890736_playcardnewweb.avif" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/1735023528824_web41.avif" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="../img/1735289288575_web1.avif" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+    <div class="m-5">
+        <div class="d-flex justify-content-center flex-wrap">
+
+       <% movie.map((v,i)=>{ %>
+                <a class="card" href="/bookings/?id=<%= v.id %>">
+                    <img src="<%= v.movieImage %>" class="card-img-top" height="334" alt="...">
+                    <div class="card-body px-0">
+                    <h5 class="card-title fw-bold"><%= v.movieName %></h5>
+                        <p class="card-text mb-0">UA<%= v.uaAge %>+</p>
+                       <p class="card-text"> <%= v.movieGenre %></p>
+                    </div>
+                </a>
+        
+        <% }) %>
+        
+        </div>
+   
+
+        <div class="d-flex justify-content-center">
+            <% if(page>0){%>
+                <a href="?page=<%=parseInt(page)-1%>&search=<%= search %>"><button>Previous</button></a>
+            <%}%>
+                           
+            <% for(var i=0;i< totalPage;i++){%>
+                 <a href="?page=<%=i%>&search=<%= search %>"><button><%=i+1%></button></a>
+            <%}%>
+                           
+            <% if(page< totalPage-1){%>
+                    <a href="?page=<%=Number(page)+1%>&search=<%= search %>"><button>Next</button></a>
+            <%}%>
+        </div>
+ </div>
+
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,113 @@
+<%- include('./layout/navbar') %>
+    <center class="mt-5">
+        <h1>Add New Movie Ditails</h1>
+    </center>
+
+    <!-- Form for adding new student -->
+    <form method="post" action="/sendData" enctype="multipart/form-data">
+        <table border="0" align="center" cellpadding="10">
+            <tr>
+                <td>Movie Name</td>
+                <td><input type="text" name="movieName" required></td>
+            </tr>
+            <tr>
+                <td>Ratings</td>
+                <td>
+                    <select name="ratings" id="">
+                        <option value="">-- Enter Ratings --</option>
+                <% for( let i = 1; i <= 5; i++ ) { %>
+                        <option value="<%= i %>"><%= i %></option>
+                <% } %>
+                    </select>
+                </td>
+            </tr><tr>
+                <td>Movie Type</td>
+                <% var movieTypeData=["2D","3D","ICE","4DX","4DX 3D","IMAX 2D","IMAX 3D"] %>
+                <td>
+                    <% movieTypeData.map((v,i)=>{ %>
+                        <input type="checkbox" name="movieType" value="<%= v %>"><%= v %>
+                    <% }) %>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>language</td>
+                <% var languageArr=["Telugu","English","Malayalam","Hindi","Kannada","Tamil","Bengali"] %>
+                <td>
+                    <% languageArr.map((v,i)=>{ %>
+                        <input type="checkbox" name="language" value="<%= v %>"><%= v %>
+                    <% }) %>
+                   
+                </td>
+            </tr>
+            <tr>
+                <td>Movie Genre</td>
+                <td>
+                <% var movieGenreArr=["Action","Thriller","Horror","Drama","Romance","Comedy","Adventure","Music"] %>
+                     <% movieGenreArr.map((v,i)=>{ %>
+                        <input type="checkbox" name="movieGenre" value="<%= v %>"><%= v %>
+                    <% }) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Movie Description
+                </td>
+                <td>
+                    <textarea  type="text" name="movieDescription"></textarea>  
+                </td>
+            </tr>
+            <tr>
+                <td>Movie Image</td>
+                <td>
+                    <input type="file" name="movieImage" />
+                </td>
+            </tr>
+            <tr>
+                <td>movie release Date</td>
+                <td>
+                    <input type="date" name="movieDate" >
+                </td>
+            </tr>
+            <tr><td>movie release Date</td>
+                <td>
+                <% var uaAge = ["13","16","18"] %>
+                    <select name="uaAge" id="">
+                        <option value="">-- Enter UA Age --</option>
+                <% uaAge.map((v,i)=>{ %>
+                        <option value="<%= v %>"><%= v %></option>
+                <% }) %>
+                    </select>
+                </td>
+                </tr>
+            <tr>
+                <td>movie Tami</td>
+                <td>
+                    <select name="hour" id="">
+                     <option value="">-- Enter Hour --</option>
+                    <% for( let i = 1; i <= 6; i++ ) { %>
+                        <option value="<%= i %>"><%= i %></option>
+                    <% } %>
+                    </select>
+                    <select name="Minute" id="">
+                     <option value="">-- Enter Minute --</option>
+                    <% for( let i = 0; i < 60; i++ ) { %>
+                        <option value="<%= i %>"><%= i %></option>
+                    <% } %>
+                    </select>
+
+                    
+                </td>
+                </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" name="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>

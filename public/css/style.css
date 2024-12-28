@@ -1,0 +1,30 @@
+
+
+a{
+    text-decoration: none;
+    
+}
+
+
+.card{
+    border: 0!important;
+    background-color: #00000000 !important;
+    width: 200px;
+    margin: 12px;
+}
+
+.card-img-top{
+    border-radius: 8px;
+}
+
+.bg-color{
+    background-color: #171818;
+    color: #ffffff;
+}
+
+.bg-white{
+    background-color: white;
+    color: #171818; 
+    border-radius: 3px;
+    display: inline-block;
+}
